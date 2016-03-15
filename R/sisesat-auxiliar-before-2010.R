@@ -16,7 +16,7 @@ readVMSvesselBefore <- function(directorio, year, caletas, ... ){#caletas
     if(length(archivos)>1){
       for(j in 1:length(archivos)){   
         dat <- read.csv(archivos[j], stringsAsFactors = F,encoding = "utf-8") ##lee cada archivo dbf   
-        #dat <- dat[dat$X < 0,] # ahí algunos viajes de atun
+  
         datYear <- rbind(datYear,dat)
       }  
     } else {
