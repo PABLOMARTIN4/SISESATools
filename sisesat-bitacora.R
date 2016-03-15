@@ -1,1 +1,0 @@
-## falta depurar el codigo
