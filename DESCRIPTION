@@ -1,0 +1,12 @@
+Package: VMSkit
+Type: Package
+Title: What the package does (short line)
+Version: 1.0
+Date: 2014-12-02
+Author: Who wrote it
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Packaged: 2015-02-11 20:27:15 UTC; pelagico05
+LazyData: TRUE
+ByteCompile: TRUE
