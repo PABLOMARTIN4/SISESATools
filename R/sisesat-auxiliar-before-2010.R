@@ -1,5 +1,7 @@
 # PARA 2000-2009
 readVMSvesselBefore <- function(directorio, year, caletas, ... ){#caletas
+  require(foreign)
+  
   for(i in unique(year)){
     
     archivos       <- NULL
@@ -15,7 +17,7 @@ readVMSvesselBefore <- function(directorio, year, caletas, ... ){#caletas
     archivos <- dir()
     if(length(archivos)>1){
       for(j in 1:length(archivos)){   
-        dat <- read.csv(archivos[j], stringsAsFactors = F,encoding = "utf-8") ##lee cada archivo dbf   
+        dat <- read.dbf(archivos[j]) ##lee cada archivo dbf   
   
         datYear <- rbind(datYear,dat)
       }  
@@ -23,14 +25,14 @@ readVMSvesselBefore <- function(directorio, year, caletas, ... ){#caletas
       datYear <- read.csv(archivos)
     }
     
-    datYear = datYear[,-which(colnames(datYear) == "X.1")]      
+    
     emb = lapply(strsplit(as.character(datYear$EMBARCACIO), split = "/"), function(xvect) return(xvect[1]))## extrae el ex-nombre del vector EMBARCACIO
     datYear$EMBARCACIO2 = unlist(emb) 
 
-    ghostVessel = tapply(datYear$EMBARCACIO2, datYear$NUMERO_EMB, unique)
-    namesGhost = names(ghostVessel[ghostVessel > 1])
+#     ghostVessel = tapply(datYear$NUMERO_EMB, datYear$EMBARCACIO2, unique)
+#     namesGhost = names(ghostVessel[ghostVessel > 1])
     
-    datYear = dataYear[!datYear$NUMERO_EMB %in% namesGhost,]
+    #datYear = dataYear[!datYear$NUMERO_EMB %in% namesGhost,]
     
     for(barco in sort(embarcaciones)){
       datBarco           <- datYear[datYear$EMBARCACIO2 == barco,]
@@ -71,8 +73,8 @@ readVMSvesselBefore <- function(directorio, year, caletas, ... ){#caletas
         datBarco$cambio.angle.1   <- c(NA, rev(diff(rev(datBarco$angle))))
         datBarco$cambio.angle.2   <- c(rev(diff(rev(datBarco$angle))), NA)
         
-        carpeta <- paste("dat",substring(datBarco$DATACION[1], 7, 10), sep = "")
-        write.csv(datBarco, file = file.path(directorio,carpeta,paste(barco,".csv", sep = ""))) 
+        carpeta <- paste("dat",substring(datBarco$DATACION2[1], 7, 10), sep = "")
+        write.csv(datBarco, file = file.path(directorio,carpeta,paste(datBarco$DATACION2[1],".csv", sep = ""))) 
       }
     }        
   }  
