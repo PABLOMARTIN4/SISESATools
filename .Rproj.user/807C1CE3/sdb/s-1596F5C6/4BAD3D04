@@ -1,0 +1,16 @@
+{
+    "contents" : "require(foreign) \nrequire(fenix)    # \nrequire(gdata)\nrequire(stringr)\nrequire(parallel) # multinucleo\nrequire(doSNOW)   # multinucleo\nrequire(VMSkit)\nrequire(shape)    # Arrows (mapVMS)\n\n\n#directorio = \"E:/vms_prueba_tesis\"\n#directorio = \"E:/enviar_IMARPE_data2010a2015\"\n\n\n#readVMSvesselafter(directorio, year = 2000:2014, caletas = caletas)",
+    "created" : 1458066208132.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3533762906",
+    "id" : "4BAD3D04",
+    "lastKnownWriteTime" : 1458066371,
+    "path" : "F:/github/SISESATools/SISESATools/Demo/Demo.R",
+    "project_path" : "Demo/Demo.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
