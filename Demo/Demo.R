@@ -18,3 +18,7 @@ directorio = "E:/vms_prueba_tesis/data_vms"
 # save(allPuertos, file = "allPuertos.rda")
 # save(temporadaSardina, file = "temporadaSardina.rda")
 # vamos a probar el readVMSvesselbefore2010
+
+
+temporadaAnchovetaNC = read.csv("E:/package/temporada_anch_nc.csv")
+save(temporadaAnchovetaNC, file = "temporadaAnchovetaNC.rda")                
