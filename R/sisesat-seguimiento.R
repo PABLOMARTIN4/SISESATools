@@ -1,5 +1,8 @@
 
 # Cruce de la informacion SISESAT - SEGUIMIENTO ---------------------------
+readDataSeg <- function(data, ...){
+  # incluir fecha, Fecha.Fin y Codigo.Fecha 
+}
 
 .removeSameRow = function(x){ 
   resta   = difftime(x[-1],x[-length(x)])
