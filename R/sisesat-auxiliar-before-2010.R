@@ -60,8 +60,8 @@ readVMSvesselBefore <- function(directorio, year, caletas, ... ){#caletas
         datBarco$change.speed.1   <- c(NA, diff(datBarco$velocidadEmision))
         datBarco$change.speed.2   <- c(diff(datBarco$velocidadEmision), NA)
         datBarco$diferenciaRUMBO  <- calcularRumbo(datBarco$X,datBarco$Y)#$vectorRUMBO
-        #datBarco$cambioRUMBO      <- apply(matrix(datBarco$diferenciaRUMBO),1,modificarRumbo)  
-        datBarco$cambioRUMBO      <- c(NA,abs(diff(datBarco$diferenciaRUMBO)))
+        datBarco$cambioRUMBO      <- c(NA, apply(matrix(abs(diff(datBarco$diferenciaRUMBO))),1,modificarRumbo))
+        #datBarco$cambioRUMBO      <- c(NA,abs(diff(datBarco$diferenciaRUMBO)))
         datBarco$compVelocidad    <- datBarco$VELOCIDAD-round(datBarco$velocidadEmision,1)
         datBarco$angle            <- c(NA, estimateAngle(datBarco$X, datBarco$Y), NA)
         datBarco$cambio.angle.1   <- c(NA, rev(diff(rev(datBarco$angle))))
