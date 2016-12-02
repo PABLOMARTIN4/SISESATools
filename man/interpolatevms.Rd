@@ -47,14 +47,14 @@ Pablo Marin and Rocío Joo.
 # Load the datsat data
 data(datsat)
 
-datsat = datsat[datsat$trip == 1,]
+datsat = datsat[datsat$trip == "10060-8",]
 
 # Interpolate the VMS data
 interpolation <- interpolatevms(datsat, interval = 60, proj4 = NULL, area = NULL)
 
 # Map
-mapVMS(x = datsat$lon, y = datsat$lat,  speed = datsat$Vel.Cal)
-points(interpolation$lon2, intepolation$lat2, pch = 16, cex = 0.8)
+mapVMS(x = datsat$lon, y = datsat$lat,  speed = datsat$speed)
+points(interpolation$LONGITUDE_M, intepolation$LATITUDE_M, pch = 16, cex = 0.7)
 
 }
 
