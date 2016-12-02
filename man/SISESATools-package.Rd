@@ -17,7 +17,12 @@ SISESATools(x)
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+Package: \tab SISESATools\cr
+Type: \tab Package\cr
+Version: \tab 1.0\cr
+Date: \tab 2016-12-02\cr
+License: \tab \cr
+LazyLoad: \tab yes\cr
 }
 \value{
 %%  ~Describe the value returned
