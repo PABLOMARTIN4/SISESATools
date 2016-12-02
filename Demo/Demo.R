@@ -10,6 +10,10 @@ require(shape)    # Arrows (mapVMS)
 rm(data)
 directorio = "E:/vms_prueba_tesis/data_vms"
 
+datsat = read.csv("")
+datbit = read.csv("")
+datseg = read.csv("")
+
 # directorio = "E:/enviar_IMARPE_data2010a2015"
 # readVMSvesselafter(directorio, year = 2000:2014, caletas = caletas)
 

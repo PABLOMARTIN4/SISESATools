@@ -2,7 +2,7 @@
     "path" : "F:/github/SISESATools/SISESATools/man",
     "sortOrder" : [
         {
-            "ascending" : true,
+            "ascending" : false,
             "columnIndex" : 2
         }
     ]
