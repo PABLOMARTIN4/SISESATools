@@ -1,7 +1,7 @@
-\name{interpolate}
-\alias{interpolate}
+\name{interpolatevms}
+\alias{interpolatevms}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Interpolate points georeference points
+\title{Interpolate georeference points
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -12,7 +12,7 @@ interpolatevms(datsat, interval = 60, proj4 = NULL, area = NULL)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{datsat}{datsat dataset with georeference points (longitude y latitude) that need to be interpolated}
-  \item{interval}{Time in minutes that want to interpolated}
+  \item{interval}{Time bewteem each point interpolate}
   \item{proj4}{...}
   \item{area}{...}
 }
@@ -31,7 +31,7 @@ interpolatevms(datsat, interval = 60, proj4 = NULL, area = NULL)
 %% ~put references to the literature/web site here ~
 }
 \author{
-Pablo Martin Marin Abanto
+Pablo Marin and Rocío Joo.
 }
 \note{
 %%  ~~further notes~~
@@ -44,16 +44,17 @@ Pablo Martin Marin Abanto
 
 \examples{
 
-#Load the datsat data
+# Load the datsat data
 data(datsat)
 
 datsat = datsat[datsat$trip == 1,]
 
-#Interpolate the VMS data
-
+# Interpolate the VMS data
 interpolation <- interpolatevms(datsat, interval = 60, proj4 = NULL, area = NULL)
-mapVMS(x = datsat$lon, y = datsat$lat,  vel)
 
+# Map
+mapVMS(x = datsat$lon, y = datsat$lat,  speed = datsat$Vel.Cal)
+points(interpolation$lon2, intepolation$lat2, pch = 16, cex = 0.8)
 
 }
 
