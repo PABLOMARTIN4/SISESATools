@@ -40,3 +40,7 @@ interpolation <- interpolatevms(projet.datsat, interval = 60, proj4 = NULL, area
 
 # temporadaAnchovetaNC = read.csv("E:/package/temporada_anch_nc.csv")
 # save(temporadaAnchovetaNC, file = "temporadaAnchovetaNC.rda")                
+
+
+#idCodePuertos = read.csv("idCodePuertos.csv")
+#save(idCodePuertos, file = "idCodePuertos.rda")
