@@ -1,0 +1,70 @@
+---
+title: "VMS Markdown"
+author: "Rocio Joo, Pablo Marin"
+date: "January 30, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+## VMS data analysis
+
+This 'package' (set of codes) is intended for Peruvian VMS (SISESAT) data applications. When I first started using SISESAT data, I was coding in Matlab. In collaboration with Pablo Marin, we rewrote a great part of those codes in R; particularly the ones for data pre-processing. If you want to cite any of this, you should refer to https://github.com/PabloMBooster/SISESATools. During all these years, the data given to us has taken different formats, each one with its specific problems. Here, we will not deal with those specific problems. Instead, we will start with a given format and its up to the users to adapt the codes to their data or their datasets to fit the codes.
+
+The codes will comprise the following stages:
+
+\begin{itemize}
+  \item Pre-processing: some codes to clean the data.
+  \item Training dataset: crossing VMS and observers data. Use only when observers data or reliable logbook data is available. 
+  \item ANN: training and validating artificial neural networks to identify fishing set locations in the data; then use it for prediction
+\end{itemize}
+
+Some other codes could be added in the future.
+
+## Pre-processing
+
+Let's start by indicating R where the files are and will be. 
+
+
+```{r,message=FALSE,warning=FALSE}
+# setwd("/run/media/rjoo/data/VMScripts/Scripts/SISESATools/")
+dossier.data.inputs <- './data/' # that should exist and that's where you stock data
+dossier.functions <- './R/' # that's where you stock Scripts
+dossier.data.outputs <- './DataOutputs/' # that's where you'll put data outputs later
+dossier.stat.outputs <- './StatOutputs/' # that too
+#checking if the last two exist qnd if not, create
+if (!dir.exists(dossier.data.outputs)){
+  dir.create(dossier.data.outputs)
+}
+if (!dir.exists(dossier.stat.outputs)){
+  dir.create(dossier.stat.outputs)
+}
+
+```
+
+```{r,message=FALSE,warning=FALSE,echo=FALSE,eval=FALSE}
+# I have to transform a data to make a playing dataset
+library(random)
+library(randomNames)
+source(paste0(dossier.functions,'AnonymData.R'))
+data <- read.table(file = paste0(dossier.data.inputs,'RealData.txt'),header = TRUE,sep="\t",dec = ".")
+# just take the first 100000 lines
+num.obs <- 100000
+data.modif <- anonym.data(data,num.obs)
+
+save(data.modif,file=paste0(dossier.data.inputs,'play.RData'))
+
+write.table(data.modif,file=paste0(dossier.data.inputs,"VMSdataset.txt"),sep="\t",dec = ".",row.names = FALSE,col.names=TRUE)
+```
+
+```{r,message=FALSE,warning=FALSE}
+data(VMSdataset)
+#source(paste0(dossier.functions,"AuxiliaryFunctions.R")) # tiene lo mismo o menos que la de Pablo
+#source(paste0(dossier.functions,"sisesat-main.R")) 
+#source(paste0(dossier.functions,"sisesat-internal.R")) 
+
+# cleaning data and computing first variables
+```

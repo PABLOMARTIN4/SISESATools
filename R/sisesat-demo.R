@@ -3,8 +3,8 @@ require(foreign)
 require(gdata)
 require(stringr)
 require(parallel)
-require(doSNOW)
-require(VMSkit)
+#require(doSNOW)
+
 
 #directorio  = "E:/vms_prueba_tesis/data_vms"
 
