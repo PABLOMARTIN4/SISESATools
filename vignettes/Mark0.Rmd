@@ -61,7 +61,14 @@ write.table(data.modif,file=paste0(dossier.data.inputs,"VMSdataset.txt"),sep="\t
 ```
 
 ```{r,message=FALSE,warning=FALSE}
-data(VMSdataset)
+# Directory of data base
+VMSdataset <- system.file("extdata", "VMSdataset.txt", package = "SISESATools")
+print(VMSdataset)
+
+# Read a example of data base
+VMSdataset <- read.table(VMSdataset, header = T)#, sep="\t", dec = ".")
+head(VMSdataset)
+
 #source(paste0(dossier.functions,"AuxiliaryFunctions.R")) # tiene lo mismo o menos que la de Pablo
 #source(paste0(dossier.functions,"sisesat-main.R")) 
 #source(paste0(dossier.functions,"sisesat-internal.R")) 
