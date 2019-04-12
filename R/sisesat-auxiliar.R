@@ -3,6 +3,7 @@ distXY <- function(lonA,latA,lonB,latB){
   distXY <- sqrt((lonA-lonB)^2 + (latA-latB)^2)*60
   return(distXY)
 }
+
 # Distancia entre dos puntos considerando la curvatura de la tierra
 distORTODROMICA <- function (x1,y1,x2,y2) 
 {
